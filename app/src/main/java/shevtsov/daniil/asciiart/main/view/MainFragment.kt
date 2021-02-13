@@ -47,9 +47,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun FragmentMainBinding.initViews() {
-        openCreationButton.setOnClickListener { viewModel.onOpenCreation() }
-        openLearningButton.setOnClickListener { viewModel.onOpenLearning() }
-        openStructureButton.setOnClickListener { viewModel.onOpenStructure() }
+//        openCreationButton.setOnClickListener { viewModel.onOpenCreation() }
+//        openLearningButton.setOnClickListener { viewModel.onOpenLearning() }
+//        openStructureButton.setOnClickListener { viewModel.onOpenStructure() }
     }
 
     private fun handleEvent(event: MainScreenEvent) {

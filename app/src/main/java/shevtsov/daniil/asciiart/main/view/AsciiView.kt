@@ -3,10 +3,12 @@ package shevtsov.daniil.asciiart.main.view
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.Log
+import android.view.Gravity
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.res.ResourcesCompat
+import shevtsov.daniil.asciiart.R
 
 class AsciiView @JvmOverloads constructor(
     context: Context,
@@ -17,9 +19,10 @@ class AsciiView @JvmOverloads constructor(
     private val gridCreator = GridCreator()
 
     init {
-        textScaleX = 1.5f;
+        textScaleX = 1.9f
         textSize = 20f;
-        typeface = Typeface.MONOSPACE;
+        gravity = Gravity.CENTER
+        typeface = ResourcesCompat.getFont(context, R.font.bm437_ibm_bios)
         setBackgroundColor(Color.BLACK)
         setTextColor(Color.WHITE)
 
@@ -38,9 +41,9 @@ class AsciiView @JvmOverloads constructor(
                             else -> gridCoordinate.x % 2 != 0
                         }
                     ) {
-                        "1"
+                        "█"
                     } else {
-                        "0"
+                        "░"
                     }
                 }
             }

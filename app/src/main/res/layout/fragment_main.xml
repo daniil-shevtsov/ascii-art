@@ -5,44 +5,44 @@
     android:layout_height="match_parent"
     android:background="@color/commonBackground">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/open_structure_button"
-        style="@style/CommonButton"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/main_fragment_structure_button_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/open_structure_button"-->
+<!--        style="@style/CommonButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:text="@string/main_fragment_structure_button_title"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/open_creation_button"
-        style="@style/CommonButton"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/main_fragment_creation_button_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/open_structure_button" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/open_creation_button"-->
+<!--        style="@style/CommonButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:text="@string/main_fragment_creation_button_title"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/open_structure_button" />-->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/open_learning_button"
-        style="@style/CommonButton"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/main_fragment_learning_button_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/open_creation_button" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/open_learning_button"-->
+<!--        style="@style/CommonButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:text="@string/main_fragment_learning_button_title"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/open_creation_button" />-->
 
     <shevtsov.daniil.asciiart.main.view.PixelView
         android:id="@+id/pixelView"
@@ -52,15 +52,15 @@
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/open_learning_button" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <shevtsov.daniil.asciiart.main.view.AsciiView
         android:id="@+id/asciiView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pixelView" />
 
