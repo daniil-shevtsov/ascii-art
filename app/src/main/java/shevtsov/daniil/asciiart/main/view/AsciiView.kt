@@ -21,7 +21,7 @@ class AsciiView @JvmOverloads constructor(
     init {
         textScaleX = 1.9f
         textSize = 26f;
-        gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
+        gravity = Gravity.CENTER
         typeface = ResourcesCompat.getFont(context, R.font.bm437_ibm_bios)
         setBackgroundColor(Color.BLACK)
         setTextColor(Color.WHITE)
