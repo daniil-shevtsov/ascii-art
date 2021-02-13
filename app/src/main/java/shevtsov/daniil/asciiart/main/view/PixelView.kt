@@ -26,6 +26,7 @@ class PixelView @JvmOverloads constructor(
     }
 
     private val gridPaint = Paint().apply {
+        strokeWidth = 2f
         color = Color.RED
         style = Paint.Style.STROKE
     }
@@ -42,27 +43,42 @@ class PixelView @JvmOverloads constructor(
     private fun render(canvas: Canvas) {
         canvas.drawPaint(backgroundPaint)
 
-        val pixels = gridCreator.createGrid(width = GRID_WIDTH, height = GRID_HEIGHT)
+        val grid = gridCreator.createGrid(width = GRID_WIDTH, height = GRID_HEIGHT)
 
         val pixelSize = width.toFloat() / GRID_WIDTH
 
-        Log.d("PixelView", "count: ${pixels.size} width: $width size: $pixelSize")
+        Log.d("PixelView", "count: ${grid.size} width: $width size: $pixelSize")
 
-        pixels.forEach { coordinate ->
-            val rect = with(coordinate) {
-                val startX = x * pixelSize
-                val startY = y * pixelSize
-                val endX = startX + pixelSize
-                val endY = startY + pixelSize
-                RectF(startX, startY, endX, endY)
-            }
-            canvas.drawRect(rect, pixelPaint)
-            canvas.drawRect(rect, gridPaint)
+        grid
+            .filter { it.x == it.y }
+            .forEach { coordinate ->
+                val x = coordinate.x.toFloat()
+                val y = coordinate.y.toFloat()
+                //x = 1
+                //y = 1
+            canvas.drawLine(0f, y*pixelSize, GRID_WIDTH*pixelSize, y*pixelSize, gridPaint)
+            canvas.drawLine(x*pixelSize, 0f, x*pixelSize, GRID_HEIGHT*pixelSize, gridPaint)
         }
+
+//        pixels
+//            .filter { gridCoordinate -> gridCoordinate.x % 2 == 0 || gridCoordinate.y % 2 == 0 }
+//            .forEach { coordinate ->
+//                val rect = coordinate.createRect(pixelSize)
+//                canvas.drawRect(rect, pixelPaint)
+//            }
+
+    }
+
+    private fun GridCoordinate.createRect(pixelSize: Float): RectF {
+        val startX = x * pixelSize
+        val startY = y * pixelSize
+        val endX = startX + pixelSize
+        val endY = startY + pixelSize
+
+        return RectF(startX, startY, endX, endY)
     }
 
     private companion object {
-        const val PIXEL_SIZE = 5
         const val GRID_WIDTH = 10
         const val GRID_HEIGHT = 10
     }
