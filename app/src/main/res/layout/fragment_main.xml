@@ -44,4 +44,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/open_creation_button" />
 
+    <shevtsov.daniil.asciiart.main.view.PixelView
+        android:id="@+id/pixelView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/asciiView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/open_learning_button" />
+
+    <shevtsov.daniil.asciiart.main.view.AsciiView
+        android:id="@+id/asciiView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pixelView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
