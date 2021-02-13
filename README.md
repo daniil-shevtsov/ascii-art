@@ -11,5 +11,5 @@ The challenge is to separate and abstract everything in such way that multimodul
 
 ## Current state of project
 Spaghetti pixel and ascii views:
+
 ![Screenshot](./readme/screenshot_1.png)
-![Screenshot](./readme/screenshot_2.png)
