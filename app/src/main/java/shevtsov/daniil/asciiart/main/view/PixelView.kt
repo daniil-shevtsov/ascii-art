@@ -49,24 +49,41 @@ class PixelView @JvmOverloads constructor(
 
         Log.d("PixelView", "count: ${grid.size} width: $width size: $pixelSize")
 
+
+
+        grid
+            .filter { gridCoordinate ->
+                when {
+                    gridCoordinate.y % 2 == 0 -> gridCoordinate.x % 2 == 0
+                    else -> gridCoordinate.x % 2 != 0
+                }
+
+            }
+            .forEach { coordinate ->
+                val rect = coordinate.createRect(pixelSize)
+                canvas.drawRect(rect, pixelPaint)
+            }
         grid
             .filter { it.x == it.y }
             .forEach { coordinate ->
                 val x = coordinate.x.toFloat()
                 val y = coordinate.y.toFloat()
-                //x = 1
-                //y = 1
-            canvas.drawLine(0f, y*pixelSize, GRID_WIDTH*pixelSize, y*pixelSize, gridPaint)
-            canvas.drawLine(x*pixelSize, 0f, x*pixelSize, GRID_HEIGHT*pixelSize, gridPaint)
-        }
 
-//        pixels
-//            .filter { gridCoordinate -> gridCoordinate.x % 2 == 0 || gridCoordinate.y % 2 == 0 }
-//            .forEach { coordinate ->
-//                val rect = coordinate.createRect(pixelSize)
-//                canvas.drawRect(rect, pixelPaint)
-//            }
-
+                canvas.drawLine(
+                    0f,
+                    y * pixelSize,
+                    GRID_WIDTH * pixelSize,
+                    y * pixelSize,
+                    gridPaint
+                )
+                canvas.drawLine(
+                    x * pixelSize,
+                    0f,
+                    x * pixelSize,
+                    GRID_HEIGHT * pixelSize,
+                    gridPaint
+                )
+            }
     }
 
     private fun GridCoordinate.createRect(pixelSize: Float): RectF {
@@ -79,8 +96,8 @@ class PixelView @JvmOverloads constructor(
     }
 
     private companion object {
-        const val GRID_WIDTH = 10
-        const val GRID_HEIGHT = 10
+        const val GRID_WIDTH = 8
+        const val GRID_HEIGHT = 8
     }
 
 }
