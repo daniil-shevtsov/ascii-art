@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-internal class GridCreatorTest {
+internal class GridIndexCreatorTest {
 
-    private lateinit var gridCreator: GridCreator
+    private lateinit var gridIndexCreator: GridIndexCreator
 
     @BeforeEach
     fun onSetup() {
-        gridCreator = GridCreator()
+        gridIndexCreator = GridIndexCreator()
     }
 
     @Test
@@ -27,7 +27,7 @@ internal class GridCreatorTest {
             1 to 1
         )
 
-        val grid = gridCreator.createGrid(2, 2)
+        val grid = gridIndexCreator.createGrid(2, 2)
         assertEquals(expected, grid)
     }
 

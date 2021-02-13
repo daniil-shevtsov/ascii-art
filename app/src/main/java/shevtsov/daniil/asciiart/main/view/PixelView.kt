@@ -4,7 +4,9 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 
 class PixelView @JvmOverloads constructor(
@@ -19,10 +21,16 @@ class PixelView @JvmOverloads constructor(
     }
 
     private val pixelPaint = Paint().apply {
-        isAntiAlias = true
+        color = Color.WHITE
+        style = Paint.Style.FILL
+    }
+
+    private val gridPaint = Paint().apply {
         color = Color.RED
         style = Paint.Style.STROKE
     }
+
+    private val gridCreator = GridCreator()
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
@@ -34,17 +42,29 @@ class PixelView @JvmOverloads constructor(
     private fun render(canvas: Canvas) {
         canvas.drawPaint(backgroundPaint)
 
-        val columns = IntArray(GRID_WIDTH)
-        val rows = IntArray(GRID_HEIGHT)
-        val pixels = columns.flatMap { column ->
-            rows.map { row -> column to row }
+        val pixels = gridCreator.createGrid(width = GRID_WIDTH, height = GRID_HEIGHT)
+
+        val pixelSize = width.toFloat() / GRID_WIDTH
+
+        Log.d("PixelView", "count: ${pixels.size} width: $width size: $pixelSize")
+
+        pixels.forEach { coordinate ->
+            val rect = with(coordinate) {
+                val startX = x * pixelSize
+                val startY = y * pixelSize
+                val endX = startX + pixelSize
+                val endY = startY + pixelSize
+                RectF(startX, startY, endX, endY)
+            }
+            canvas.drawRect(rect, pixelPaint)
+            canvas.drawRect(rect, gridPaint)
         }
     }
 
     private companion object {
         const val PIXEL_SIZE = 5
-        const val GRID_WIDTH = 100
-        const val GRID_HEIGHT = 100
+        const val GRID_WIDTH = 10
+        const val GRID_HEIGHT = 10
     }
 
 }

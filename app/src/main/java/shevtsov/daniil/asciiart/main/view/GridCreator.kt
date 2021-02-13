@@ -2,14 +2,12 @@ package shevtsov.daniil.asciiart.main.view
 
 class GridCreator {
 
-    fun createGrid(width: Int, height: Int): List<Pair<Int, Int>> {
-        val columns = IntRange(0, width - 1)
-        val rows = IntRange(0, height - 1)
-        val grid = columns.flatMap { column ->
-            rows.map { row -> column to row }
-        }
+    private val gridIndexCreator = GridIndexCreator()
 
-        return grid
+    fun createGrid(width: Int, height: Int):List<GridCoordinate> {
+        return gridIndexCreator.createGrid(width, height).map { (x, y) ->
+            GridCoordinate(x, y)
+        }
     }
 
 }
